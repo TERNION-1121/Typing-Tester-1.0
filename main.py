@@ -6,7 +6,8 @@ def typing_test():
     while will == 1:
         '''Prints the sentence(pre-defined by the user in the program), then starts the timer as soon as enter is pressed.
         The timer stops as soon as the enter is pressed after typing.
-        At last it displays the typing speed(WPM) and typing accuracy(%)'''
+        At last it displays the typing speed(WPM), typing accuracy(%) and standard net typing speed(WPM)'''
+
         dict_key = random.randint(1,10)
         print("\nType the sentence given below:\n")
 
@@ -36,9 +37,9 @@ def typing_test():
 
         words_lst = words.split()
         sen_lst = sentences[dict_key].split()
-        words_sen = len(sen_lst)
+        words_count = len(words_lst)
 
-        correct_words = i =  0
+        correct_words =  0
         try:
             for word in words_lst:
                 if word in sen_lst:
@@ -47,12 +48,15 @@ def typing_test():
         except Exception as e:
             print("The program failed to process ahead properly because of this error -->", e)
         
-        accuracy = (correct_words / words_sen) * 100
+        accuracy = (correct_words / words_count) * 100
+
+        net_wpm = (wpm * accuracy) / 100
 
         print(f"\nYour Typing speed is {wpm} WPM")
         print("Your Accuracy is %.2f" % accuracy, "%")
-        # print(f"Time taken in seconds: {time_lapsed}\nCharacters in the sentence: {len(words)}") # extra information to confirm the typing speed
-        # print(f"Words in total {words_entered}\nCorrect Words {correct_words}\nErrors {errors}") # extra information to confirm the typing accuracy
+        print("Your Standard Net Typing speed is %.2f" % net_wpm, "WPM")
+        # print(f"\n|\tTime taken in seconds: {time_lapsed}\n|\tCharacters in the sentence: {len(words)}") # extra information to confirm the typing speed
+        # print(f"|\n|\tTotal words typed {words_count}\n|\tTotal words in the sentence {len(sen_lst)}\n|\tCorrect Words {correct_words}") # extra information to confirm the typing accuracy
         
         try:
             will = int(input('\nDo you want to continue using the program?\nEnter 0 to exit\nEnter 1 to continue\n\n'))
