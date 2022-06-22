@@ -40,10 +40,15 @@ def typing_test():
         words_entered = len(words_lst)
         errors = 0
 
+        i = 0
         try:
-            for i in range(len(sen_lst)):
-                if words_lst[i] != sen_lst[i]:
+            for word in words_lst:
+                if sen_lst[i] != word:
                     errors+=1
+                    if len(words_lst) != len(sen_lst):
+                        i+=1
+                    else: i+=0
+                i+=1
 
         except Exception as e:
             print("The program failed to process ahead because of this error -->", e)
