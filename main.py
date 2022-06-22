@@ -21,8 +21,7 @@ def typing_test():
                     9 : 'To the surprise of everyone, the Rapture happened yesterday but it didn\'t quite go as expected.',
                     10: 'She had that tint of craziness in her soul that made her believe she could actually make a difference.' }
 
-        sen_lst = sentences[dict_key]
-        print(f"{sen_lst}\n")
+        print(f"{sentences[dict_key]}\n")
         input("Please press Enter to start the timer and start typing.\n")
 
         start_time = t.time()
@@ -34,19 +33,21 @@ def typing_test():
 
         characters = len(words)
         wpm = (characters / 5) // minutes # each word would be 5 keystrokes
+
         words_lst = words.split()
-        words_entered = len(words_lst)
-        actual_words = sen_lst.split()
+        sen_lst = sentences[dict_key].split()
+        words_sen = len(sen_lst)
 
+        correct_words = i =  0
+        try:
+            for word in words_lst:
+                if word in sen_lst:
+                    correct_words+=1
 
-        correct_words = 0
-        range_len = words_entered if words_entered < len(actual_words) else len(actual_words)
-
-        for i in range(range_len):
-            if words_lst[i] == actual_words[i]:
-                correct_words += 1
-                
-        accuracy = (correct_words / words_entered) * 100
+        except Exception as e:
+            print("The program failed to process ahead properly because of this error -->", e)
+        
+        accuracy = (correct_words / words_sen) * 100
 
         print(f"\nYour Typing speed is {wpm} WPM")
         print("Your Accuracy is %.2f" % accuracy, "%")
