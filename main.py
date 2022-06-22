@@ -22,7 +22,7 @@ def typing_test():
                     9 : 'To the surprise of everyone, the Rapture happened yesterday but it didn\'t quite go as expected.',
                     10: 'She had that tint of craziness in her soul that made her believe she could actually make a difference.' }
 
-        print(f"{sentences[dict_key]}\n")
+        print(f"\"{sentences[dict_key]}\"\n")
         input("Please press Enter to start the timer and start typing.\n")
 
         start_time = t.time()
