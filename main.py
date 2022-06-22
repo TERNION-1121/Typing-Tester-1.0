@@ -60,6 +60,6 @@ def typing_test():
             will = int(input('\t\t\t\t\n\nDo you want to continue using the program?\n\t\t\tEnter 0 to exit\n\t\t\tEnter 1 to continue\n\n'))
         except Exception as e:
             print("\nOops! Looks like you have entered a wrong input! Have a look -->", e)
-        break
+            break
 
 typing_test()
