@@ -4,7 +4,7 @@ import random
 def typing_test():
     will = 1
     while will == 1:
-        '''This function prints the sentence(pre-defined by the user in the program), then starts the timer as soon as enter is pressed.
+        '''Prints the sentence(pre-defined by the user in the program), then starts the timer as soon as enter is pressed.
         The timer stops as soon as the enter is pressed after typing.
         At last it displays the typing speed(WPM) and typing accuracy(%)'''
         dict_key = random.randint(1,10)
@@ -39,14 +39,13 @@ def typing_test():
         actual_words = sen_lst.split()
 
 
-        errors = 0
+        correct_words = 0
         range_len = words_entered if words_entered < len(actual_words) else len(actual_words)
 
         for i in range(range_len):
-            if words_lst[i] != actual_words[i]:
-                errors += 1
-
-        correct_words =  words_entered - errors
+            if words_lst[i] == actual_words[i]:
+                correct_words += 1
+                
         accuracy = (correct_words / words_entered) * 100
 
         print(f"\nYour Typing speed is {wpm} WPM")
