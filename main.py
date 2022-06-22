@@ -21,10 +21,10 @@ def typing_test():
                     9 : 'To the surprise of everyone, the Rapture happened yesterday but it didn\'t quite go as expected.',
                     10: 'She had that tint of craziness in her soul that made her believe she could actually make a difference.' }
 
-        print(f"\"{sentences[dict_key]}\"")
-        print()
-
+        sen_lst = sentences[dict_key]
+        print(f"{sen_lst}\n")
         input("Please press Enter to start the timer and start typing.\n")
+
         start_time = t.time()
         words = input()
         end_time = t.time()
@@ -34,35 +34,28 @@ def typing_test():
 
         characters = len(words)
         wpm = (characters / 5) // minutes # each word would be 5 keystrokes
-
-        sen_lst = sentences[dict_key].split(' ')
-        words_lst = words.split(' ')
+        words_lst = words.split()
         words_entered = len(words_lst)
+        actual_words = sen_lst.split()
+
+
         errors = 0
+        range_len = words_entered if words_entered < len(actual_words) else len(actual_words)
 
-        i = 0
-        try:
-            for word in words_lst:
-                if sen_lst[i] != word:
-                    errors+=1
-                    if len(words_lst) != len(sen_lst):
-                        i+=1
-                    else: i+=0
-                i+=1
-
-        except Exception as e:
-            print("The program failed to process ahead because of this error -->", e)
+        for i in range(range_len):
+            if words_lst[i] != actual_words[i]:
+                errors += 1
 
         correct_words =  words_entered - errors
-        accuracy = (correct_words / words_entered) * 100 # typing accuracy here is taken as correct words / total words
+        accuracy = (correct_words / words_entered) * 100
 
-        print(f"\t\t\t\tYour Typing speed is {wpm} WPM")
-        print("\t\t\t\tYour Accuracy is %.2f" % accuracy, "%")
+        print(f"\nYour Typing speed is {wpm} WPM")
+        print("Your Accuracy is %.2f" % accuracy, "%")
         # print(f"Time taken in seconds: {time_lapsed}\nCharacters in the sentence: {len(words)}") # extra information to confirm the typing speed
         # print(f"Words in total {words_entered}\nCorrect Words {correct_words}\nErrors {errors}") # extra information to confirm the typing accuracy
         
         try:
-            will = int(input('\t\t\t\t\n\nDo you want to continue using the program?\n\t\t\tEnter 0 to exit\n\t\t\tEnter 1 to continue\n\n'))
+            will = int(input('\nDo you want to continue using the program?\nEnter 0 to exit\nEnter 1 to continue\n\n'))
         except Exception as e:
             print("\nOops! Looks like you have entered a wrong input! Have a look -->", e)
             break
