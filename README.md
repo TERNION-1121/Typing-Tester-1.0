@@ -28,3 +28,8 @@ An `error` is counted when a particular word in the `sentence` string, is sequen
 To verify the results shown at the end of the program, un-comment the lines given at the end of the `typing_test()` function to see the values used to calculate the corresponding results.
 
 An **API Documentation** file for `main.py` is also provided in the repository.
+
+<hr>
+
+###### To Use to Program
+**Download** and **Open** the `main.exe` file provided in the repository, You would be able to use to program then.
