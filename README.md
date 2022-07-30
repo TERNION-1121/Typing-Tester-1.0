@@ -1,4 +1,4 @@
-# Typing-Tester-1.0
+<h1 align = "center"> ⌨ Typing-Tester-1.0 💻</h1>
  A repository for Typing Tester 1.0: A basic python program to check `Typing Speed` in words per minute **(WPM)** and `Typing Accuracy` in percent **(%)**.
  
 
