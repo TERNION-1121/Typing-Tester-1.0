@@ -44,7 +44,6 @@ To verify the results shown at the end of the program, un-comment the lines give
 
 
 
-An **API Documentation** file for `main.py` is also provided in the repository.
 
 <hr>
 
